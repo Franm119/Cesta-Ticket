@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <openerp>
+     <data>
+    <record model="ir.ui.view" id="view_cesta_cesta_ticket_form">
+        <field name="name">cesta_cesta_ticket.form</field>
+        <field name="model">cesta.cesta_ticket</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Cesta Ticket">
+                <sheet>
+                    <group col="4" colums="4">
+                        <field name="ut"/>
+                        <field name="put"/>
+                        <field name="precio_venta" string="Bono de Alimentaciòn Diario" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_cesta_cesta_ticket_tree">
+         <field name="name">cesta_cesta_ticket.tree</field>
+        <field name="model">cesta.cesta_ticket</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="res_estados">
+                <field name="ut"/>
+                <field name="put"/>
+                <field name="precio_venta" string="Bono de Alimentaciòn Diario"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_cesta_cesta_ticket">
+        <field name="name">Cesta Ticket</field>
+        <field name="res_model">cesta.cesta_ticket</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem name="Calculo de Cesta Ticket" id="menu_cesta_cesta_ticket_gestion" sequence="10"/>
+    <menuitem name="Calculo de Cesta Ticket" id="menu_cesta_cesta_ticket_inicio" parent="menu_cesta_cesta_ticket_gestion" sequence="10" />
+    <menuitem name="Cesta Ticket" id="menu_cesta_cesta_ticket" parent="menu_cesta_cesta_ticket_inicio" action="action_cesta_cesta_ticket" sequence="10"/>
+    </data>
+</openerp>
